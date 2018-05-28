@@ -33,7 +33,7 @@ public class CarAction {
     /**
      * 车灯
      */
-    private String Lights;
+    private String lights;
 
 
     public String getCode() {
@@ -69,10 +69,10 @@ public class CarAction {
     }
 
     public String getLights() {
-        return Lights;
+        return lights;
     }
 
-    public void setLights(String Lights) {
-        this.Lights = Lights;
+    public void setLights(String lights) {
+        this.lights = lights;
     }
 }

@@ -196,7 +196,7 @@ public class CarMoveBot extends BaseBot{
         // 获取多轮槽位值：小车方向 小车距离
         String direction = getSlot("car_direction");
         String distance = getSlot("car_distance");
-        String Lights = getSlot("car_Lights");
+        String lights = getSlot("car_lights");
         Integer speed = Integer.parseInt(getSlot("car_speed"));
 
 
@@ -219,7 +219,7 @@ public class CarMoveBot extends BaseBot{
 
         for (LightsEnums lightsEnums : LightsEnums.values()) {
             if (direction.equals(lightsEnums.getOrderWord())){
-                carAction.setDirection(lightsEnums.getOrder());
+                carAction.setLights(lightsEnums.getOrder());
             }
         }
         //把指令发给消息队列

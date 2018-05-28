@@ -3,8 +3,8 @@ package com.car.ctl.demo.bean;
 import com.intellij.ui.RightAlignedLabelUI;
 
 public enum LightsEnums {
-    TURN_ON("turn_on", "打开车灯"),
-    TURN_OFF("turn_off", "关闭车灯");
+    TURN_ON("turn_on", "打开"),
+    TURN_OFF("turn_off", "关闭");
 
     private String order;
     private String orderWord;
