@@ -1,5 +1,6 @@
 package com.car.ctl.demo.bean;
 
+
 /**
  * Created with IntelliJ IDEA.
  * User: zhuyubin
@@ -23,7 +24,7 @@ public class CarAction {
     /**
      * 距离
      */
-    private String distance;
+    private Distance distance;
 
     /**
      * 速度
@@ -52,11 +53,11 @@ public class CarAction {
         this.direction = direction;
     }
 
-    public String getDistance() {
+    public Distance getDistance() {
         return distance;
     }
 
-    public void setDistance(String distance) {
+    public void setDistance(Distance distance) {
         this.distance = distance;
     }
 

@@ -9,6 +9,7 @@ import com.baidu.dueros.data.response.Reprompt;
 import com.baidu.dueros.data.response.card.TextCard;
 import com.baidu.dueros.model.Response;
 import com.car.ctl.demo.bean.CarAction;
+import com.car.ctl.demo.bean.Distance;
 import com.car.ctl.demo.bean.DirectionEnums;
 import com.car.ctl.demo.bean.LightsEnums;
 import com.car.ctl.demo.service.MessageSender;
@@ -197,7 +198,8 @@ public class CarMoveBot extends BaseBot{
         // 获取多轮槽位值：小车方向 小车距离
         String direction = getSlot("car_direction");
         //String distance = getSlot("car_distance");
-        String distance  = MyEasyJsonUtil.json2string(getSlot("car_lights"));
+        Distance distance = MyEasyJsonUtil.string2json(getSlot("car_distance"),Distance.class);
+        //String distance  = MyEasyJsonUtil.json2string(getSlot("car_lights"));
         String lights = getSlot("car_lights");
         //String lights = MyEasyJsonUtil.string2json(getSlot("car_lights"));
         Integer speed = Integer.parseInt(getSlot("car_speed"));
@@ -216,7 +218,7 @@ public class CarMoveBot extends BaseBot{
             }
         }
         carAction.setSpeed(speed);
-        if (StringUtils.isNotBlank(distance)){
+        if (StringUtils.isNotBlank(distance.toString())){
             carAction.setDistance(distance);
         }
 
@@ -232,8 +234,8 @@ public class CarMoveBot extends BaseBot{
         messageSender.send(carAction);
 
         String ret = "我知道了,小车将以" + carAction.getSpeed() + "速度向" + direction+ "运动";
-        if (StringUtils.isNotBlank(carAction.getDistance())){
-            ret = ret + carAction.getDistance();
+        if (StringUtils.isNotBlank(carAction.getDistance().toString())){
+            ret = ret + carAction.getDistance().getLength() + "米";
         }
         if (StringUtils.isNotBlank(carAction.getLights())){
             ret = ret + "，并且"+ carAction.getLights();
