@@ -102,7 +102,11 @@ public class CarMoveBot extends BaseBot{
                 // 询问城市槽位car_speed
                 ask("car_speed");
                 return askSpeed();
-            } else {
+            } else if (getSlot("car_lights") == null) {
+                // 询问城市槽位car_speed
+                ask("car_lights");
+                return askLights();
+            }else {
                 // 槽位完整
                 return complete();
             }
@@ -186,7 +190,32 @@ public class CarMoveBot extends BaseBot{
         return response;
     }
 
+    /**
+     * 询问车灯
+     *
+     * @return Response 返回Response
+     */
+    private Response askLights() {
 
+        TextCard textCard = new TextCard("询问车灯");
+        textCard.setUrl("www:......");
+        textCard.setAnchorText("链接文本");
+        textCard.addCueWord("车灯开关！");
+
+        // 设置会话信息
+        setSessionAttribute("key_1", "value_1");
+        setSessionAttribute("key_2", "value_2");
+
+        OutputSpeech outputSpeech = new OutputSpeech(OutputSpeech.SpeechType.PlainText, "车灯开关！");
+
+        // 构造reprompt
+
+        Reprompt reprompt = new Reprompt(outputSpeech);
+
+        Response response = new Response(outputSpeech, textCard, reprompt);
+
+        return response;
+    }
 
 
     /**
