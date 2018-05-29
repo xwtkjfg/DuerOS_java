@@ -13,6 +13,7 @@ import com.car.ctl.demo.bean.DirectionEnums;
 import com.car.ctl.demo.bean.LightsEnums;
 import com.car.ctl.demo.service.MessageSender;
 import org.apache.commons.lang3.StringUtils;
+import com.car.ctl.demo.common.MyEasyJsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
@@ -195,8 +196,10 @@ public class CarMoveBot extends BaseBot{
     private Response complete() {
         // 获取多轮槽位值：小车方向 小车距离
         String direction = getSlot("car_direction");
-        String distance = getSlot("car_distance");
+        //String distance = getSlot("car_distance");
+        String distance  = MyEasyJsonUtil.json2string(getSlot("car_lights"));
         String lights = getSlot("car_lights");
+        //String lights = MyEasyJsonUtil.string2json(getSlot("car_lights"));
         Integer speed = Integer.parseInt(getSlot("car_speed"));
 
 
