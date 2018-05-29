@@ -218,6 +218,7 @@ public class CarMoveBot extends BaseBot{
             }
         }
         carAction.setSpeed(speed);
+
         if (StringUtils.isNotBlank(distance.toString())){
             carAction.setDistance(distance);
         }
@@ -234,11 +235,18 @@ public class CarMoveBot extends BaseBot{
         messageSender.send(carAction);
 
         String ret = "我知道了,小车将以" + carAction.getSpeed() + "速度向" + direction+ "运动";
-        if (StringUtils.isNotBlank(carAction.getDistance().toString())){
+        /*if (StringUtils.isNotBlank(carAction.getDistance().toString())){
             ret = ret + carAction.getDistance().getLength() + "米";
         }
         if (StringUtils.isNotBlank(carAction.getLights())){
             ret = ret + "，并且"+ carAction.getLights();
+        }*/
+
+        if (StringUtils.isNotBlank(distance.toString())){
+            ret = ret + distance.getLength() + "米";
+        }
+        if (StringUtils.isNotBlank(carAction.getLights())){
+            ret = ret + "，并且"+ lights;
         }
         OutputSpeech outputSpeech = new OutputSpeech(OutputSpeech.SpeechType.PlainText, ret);
 
