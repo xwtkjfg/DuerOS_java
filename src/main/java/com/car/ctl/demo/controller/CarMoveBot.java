@@ -217,9 +217,11 @@ public class CarMoveBot extends BaseBot{
             carAction.setDistance(distance);
         }
 
-        for (LightsEnums lightsEnums : LightsEnums.values()) {
-            if (lights.equals(lightsEnums.getOrderWord())){
-                carAction.setLights(lightsEnums.getOrder());
+        if (StringUtils.isNotBlank(lights)) {
+            for (LightsEnums lightsEnums : LightsEnums.values()) {
+                if (lights.equals(lightsEnums.getOrderWord())) {
+                    carAction.setLights(lightsEnums.getOrder());
+                }
             }
         }
         //把指令发给消息队列
@@ -231,7 +233,7 @@ public class CarMoveBot extends BaseBot{
             ret = ret + carAction.getDistance();
         }
         if (StringUtils.isNotBlank(carAction.getLights())){
-            ret = ret + "，并且"+carAction.getLights();
+            ret = ret + "，并且"+ carAction.getLights();
         }
         OutputSpeech outputSpeech = new OutputSpeech(OutputSpeech.SpeechType.PlainText, ret);
 
