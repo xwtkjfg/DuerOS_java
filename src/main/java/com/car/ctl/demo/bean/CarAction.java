@@ -33,7 +33,7 @@ public class CarAction {
     /**
      * 车灯
      */
-    private String lights;
+    private String lights ;
 
 
     public String getCode() {

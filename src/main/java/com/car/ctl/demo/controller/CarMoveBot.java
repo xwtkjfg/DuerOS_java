@@ -218,7 +218,7 @@ public class CarMoveBot extends BaseBot{
         }
 
         for (LightsEnums lightsEnums : LightsEnums.values()) {
-            if (direction.equals(lightsEnums.getOrderWord())){
+            if (lights.equals(lightsEnums.getOrderWord())){
                 carAction.setLights(lightsEnums.getOrder());
             }
         }
@@ -249,3 +249,4 @@ public class CarMoveBot extends BaseBot{
         return response;
     }
 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
