@@ -25,6 +25,7 @@ public final class MyEasyJsonUtil {
 			return mapper.readValue(json, clazz);
 		}catch(Exception ex){
 			ex.printStackTrace();
+
 		}
 		return null;
 	}

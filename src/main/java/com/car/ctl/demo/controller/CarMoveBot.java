@@ -229,7 +229,10 @@ public class CarMoveBot extends BaseBot{
         // 获取多轮槽位值：小车方向 小车距离
         String direction = getSlot("car_direction");
         //String distance = getSlot("car_distance");
-        Distance distance = MyEasyJsonUtil.string2json(getSlot("car_distance"),Distance.class);
+        Distance distance = null;
+        if (StringUtils.isNotBlank(getSlot("car_distance"))) {
+                distance = MyEasyJsonUtil.string2json(getSlot("car_distance"),Distance.class);
+        }
         //String distance  = MyEasyJsonUtil.json2string(getSlot("car_lights"));
         String lights = getSlot("car_lights");
         //String lights = MyEasyJsonUtil.string2json(getSlot("car_lights"));
@@ -250,7 +253,7 @@ public class CarMoveBot extends BaseBot{
         }
         carAction.setSpeed(speed);
 
-        if (StringUtils.isNotBlank(distance.toString())){
+        if (distance != null){
             carAction.setDistance(distance);
         }
 
@@ -266,7 +269,7 @@ public class CarMoveBot extends BaseBot{
         messageSender.send(carAction);
 
         String ret = "我知道了,小车将以" + carAction.getSpeed() + "速度向" + direction+ "运动";
-        if (StringUtils.isNotBlank(distance.toString())){
+        if (distance != null){
             ret = ret + carAction.getDistance().getLength() + "米";
         }
         if (StringUtils.isNotBlank(lights)){

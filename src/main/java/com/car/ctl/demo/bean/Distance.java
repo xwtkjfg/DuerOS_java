@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class Distance implements Serializable {
 
-    private Double length =null;
+    private Double length ;
 
-    private String unit = null;
+    private String unit ;
 
     /**
      * 距离

@@ -41,6 +41,7 @@ public class CarMoveController {
 //            // 返回response
 //            response.getWriter().append(responseJson);
         } catch (Exception e) {
+            e.printStackTrace();
             return "{\"status\":1,\"msg\":\"\"}";
         }
     }
