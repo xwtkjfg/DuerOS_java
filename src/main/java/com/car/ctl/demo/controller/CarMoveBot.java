@@ -266,10 +266,10 @@ public class CarMoveBot extends BaseBot{
         messageSender.send(carAction);
 
         String ret = "我知道了,小车将以" + carAction.getSpeed() + "速度向" + direction+ "运动";
-        if (StringUtils.isNotBlank(carAction.getDistance().toString())){
+        if (StringUtils.isNotBlank(distance.toString())){
             ret = ret + carAction.getDistance().getLength() + "米";
         }
-        if (StringUtils.isNotBlank(carAction.getLights())){
+        if (StringUtils.isNotBlank(lights)){
             ret = ret + "，并且"+ lights;
         }
 

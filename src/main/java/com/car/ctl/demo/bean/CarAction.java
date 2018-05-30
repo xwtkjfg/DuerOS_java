@@ -24,7 +24,7 @@ public class CarAction {
     /**
      * 距离
      */
-    private Distance distance;
+    private Distance distance = null;
 
     /**
      * 速度
