@@ -34,7 +34,7 @@ public class CarAction {
     /**
      * 车灯
      */
-    private String lights;
+    private String lights ;
 
 
     public String getCode() {
@@ -73,7 +73,6 @@ public class CarAction {
         return lights;
     }
 
-    public void setLights(String lights) {
-        this.lights = lights;
+    public void setLights(String lights) { this.lights = lights;
     }
 }

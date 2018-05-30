@@ -148,15 +148,15 @@ public class CarMoveBot extends BaseBot{
      */
     private Response askDirection() {
 
-        TextCard textCard = new TextCard("询问方向");
+        TextCard textCard = new TextCard("您想让小车往哪个方向运动?你可以说前，后，左，右等指令");
         textCard.setUrl("www:......");
         textCard.setAnchorText("setAnchorText");
-        textCard.addCueWord("您想让小车往哪个方向运动?你可以说前后左右，左前，右前等指令");
+        textCard.addCueWord("您想让小车往哪个方向运动?你可以说前，后，左，右等指令");
 
         setSessionAttribute("key_1", "value_1");
         setSessionAttribute("key_2", "value_2");
 
-        OutputSpeech outputSpeech = new OutputSpeech(OutputSpeech.SpeechType.PlainText, "您想让小车往哪个方向运动?你可以说前后左右，左前，右前等指令");
+        OutputSpeech outputSpeech = new OutputSpeech(OutputSpeech.SpeechType.PlainText, "您想让小车往哪个方向运动?你可以说前，后，左，右等指令");
 
         Reprompt reprompt = new Reprompt(outputSpeech);
 
@@ -172,16 +172,16 @@ public class CarMoveBot extends BaseBot{
      */
     private Response askSpeed() {
 
-        TextCard textCard = new TextCard("询问速度");
+        TextCard textCard = new TextCard("请问小车运行的速度该是多少呢?");
         textCard.setUrl("www:......");
         textCard.setAnchorText("链接文本");
-        textCard.addCueWord("小车运行的速度该是多少呢?可说1至100之间任意自然数！");
+        textCard.addCueWord("请问小车运行的速度该是多少呢?");
 
         // 设置会话信息
         setSessionAttribute("key_1", "value_1");
         setSessionAttribute("key_2", "value_2");
 
-        OutputSpeech outputSpeech = new OutputSpeech(OutputSpeech.SpeechType.PlainText, "小车运行的速度该是多少呢?可说1至100之间任意自然数！");
+        OutputSpeech outputSpeech = new OutputSpeech(OutputSpeech.SpeechType.PlainText, "请问小车运行的速度该是多少呢?");
 
         // 构造reprompt
 
@@ -270,7 +270,7 @@ public class CarMoveBot extends BaseBot{
             ret = ret + carAction.getDistance().getLength() + "米";
         }
         if (StringUtils.isNotBlank(carAction.getLights())){
-            ret = ret + "，并且"+ carAction.getLights();
+            ret = ret + "，并且"+ lights;
         }
 
         /*if (StringUtils.isNotBlank(distance.toString())){

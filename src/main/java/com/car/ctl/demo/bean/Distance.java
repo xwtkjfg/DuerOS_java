@@ -11,7 +11,7 @@ public class Distance implements Serializable {
     /**
      * 距离
      */
-    private String origin;
+    //private String origin;
 
     public Double getLength() {
         return length;
@@ -30,13 +30,14 @@ public class Distance implements Serializable {
     }
 
 
-    public String getDistance() {
+   /* public String getDistance() {
         return origin;
     }
 
     public void setOrigin(String origin) {
         this.origin = origin;
     }
+    */
 
 
 }
