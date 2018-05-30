@@ -102,11 +102,13 @@ public class CarMoveBot extends BaseBot{
                 // 询问城市槽位car_speed
                 ask("car_speed");
                 return askSpeed();
-            } else if (getSlot("car_lights") == null) {
+            }
+            /*else if (getSlot("car_lights") == null) {
                 // 询问城市槽位car_speed
                 ask("car_lights");
                 return askLights();
-            }else {
+            }*/
+            else {
                 // 槽位完整
                 return complete();
             }
@@ -264,19 +266,20 @@ public class CarMoveBot extends BaseBot{
         messageSender.send(carAction);
 
         String ret = "我知道了,小车将以" + carAction.getSpeed() + "速度向" + direction+ "运动";
-        /*if (StringUtils.isNotBlank(carAction.getDistance().toString())){
+        if (StringUtils.isNotBlank(carAction.getDistance().toString())){
             ret = ret + carAction.getDistance().getLength() + "米";
         }
         if (StringUtils.isNotBlank(carAction.getLights())){
             ret = ret + "，并且"+ carAction.getLights();
-        }*/
+        }
 
-        if (StringUtils.isNotBlank(distance.toString())){
+        /*if (StringUtils.isNotBlank(distance.toString())){
             ret = ret + distance.getLength() + "米";
         }
         if (StringUtils.isNotBlank(carAction.getLights())){
             ret = ret + "，并且"+ lights;
-        }
+        }*/
+
         OutputSpeech outputSpeech = new OutputSpeech(OutputSpeech.SpeechType.PlainText, ret);
 
         Reprompt reprompt = new Reprompt(outputSpeech);

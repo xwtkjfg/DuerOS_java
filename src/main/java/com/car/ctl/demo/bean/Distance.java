@@ -1,8 +1,10 @@
 package com.car.ctl.demo.bean;
 
-public class Distance {
+import java.io.Serializable;
 
-    private Integer length;
+public class Distance implements Serializable {
+
+    private Double length;
 
     private String unit;
 
@@ -11,11 +13,11 @@ public class Distance {
      */
     private String origin;
 
-    public Integer getLength() {
+    public Double getLength() {
         return length;
     }
 
-    public void setLength(Integer length) {
+    public void setLength(Double length) {
         this.length = length;
     }
 
@@ -26,6 +28,7 @@ public class Distance {
     public void setUnit(String unit) {
         this.unit = unit;
     }
+
 
     public String getDistance() {
         return origin;
